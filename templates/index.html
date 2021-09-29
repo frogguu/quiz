@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<main>
+    <h1>Welcome!</h1>
+    <p>This is a site where you can do a fun quiz! Try to answer as many questions as you can!</p>
+    <p>While registration isn't necessary to play, your stats will not be tracked, you can't suggest questions and you won't appear on the leaderboards.</p>
+    <p><a href="{{ url_for('quiz') }}">Quiz here!</a></p>
+</main>
+{% endblock %}

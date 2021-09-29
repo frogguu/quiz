@@ -1,0 +1,99 @@
+
+/* Universal CSS */
+
+:root {
+    font-size: 15px;
+    /* background-image: url("images/background.png"); */
+}
+
+@viewport {
+    width: device-width;
+}
+
+
+html{
+    --button: rgb(25, 55, 99);
+    --background: rgb(220, 182, 255);
+    --nav-color: rgb(188, 121, 214);
+    --border-color: rgb(29, 29, 29);
+    --outer-border-color: rgb(158, 134, 180);
+    --pro-color: rgb(132, 250, 102);
+    --con-color: rgb(247, 80, 80);
+} 
+
+/*
+@font-face {
+    font-family: 'Coda';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    Font and code acquired from google fonts
+}
+*/
+
+body {
+    background-color: var(--background);
+    font-family: 'Coda', Verdana, Helvetica, Arial, sans-serif;
+    margin: 0%;
+}
+
+/* Main CSS for Desktop */
+
+main, footer {
+    align-content: center;
+}
+
+table {
+    border: 0.1em solid;
+    border-color: var(--border-color);
+    border-collapse: collapse;
+    width: 90%;
+    height: 90%;
+    align-content: center;
+    margin: 0% 5%;
+    table-layout: fixed;
+}
+
+h1, a, td, p {
+    text-align: center;
+    text-decoration: none;
+}
+
+a {
+    display: block;
+}
+
+td > a {
+    padding: 3em;
+}
+
+td {
+    border: 0.1em solid;
+    border-collapse: collapse;
+    border-color: var(--border-color);
+    text-align: center;
+    max-width: 30%;
+}
+
+/* CSS for the header and nav */
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+nav > a, div > a {
+    border: 0.1em solid;
+    border-color: var(--border-color);
+    border-collapse: collapse;
+    padding: 0.5em 3em;
+    text-decoration: none;
+    color: white;
+    background-color: var(--button);
+}
+    
+nav {
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: center;
+}

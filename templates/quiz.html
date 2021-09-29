@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<main>
+    <h1>Quiz!</h1>
+    <p>
+        Question {{ quest_num }}: {{ question }}
+    </p>
+    <table id="quiz">
+            <tr>
+                <td><a href="{{ url_for('quiz') }}/1"> {{ answers_list[0] }} </a></td>
+                <td><a href="{{ url_for('quiz') }}/2"> {{ answers_list[1] }} </a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('quiz') }}/3"> {{ answers_list[2] }} </a></td>
+                <td><a href="{{ url_for('quiz') }}/4"> {{ answers_list[3] }} </a></td>
+            </tr>
+    </table>
+</main>
+{% endblock %}

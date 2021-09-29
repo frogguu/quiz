@@ -1,0 +1,252 @@
+
+/* Universal CSS */
+
+:root {
+    font-size: 15px;
+    background-image: url("images/background.png");
+}
+
+@viewport {
+    width: device-width;
+}
+
+
+html{
+    --button: rgb(25, 55, 99);
+    --background: rgb(220, 182, 255);
+    --nav-color: rgb(148, 35, 192);
+    --border-color: rgb(29, 29, 29);
+    --outer-border-color: rgb(158, 134, 180);
+    --pro-color: rgb(132, 250, 102);
+    --con-color: rgb(247, 80, 80);
+} 
+
+@font-face {
+    font-family: 'Coda';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/coda/v16/SLXHc1jY5nQ8FUUGaw.woff2) format('woff2');
+    /* Font and code acquired from google fonts */
+}
+
+body {
+    font-family: 'Coda', Verdana, Helvetica, Arial, sans-serif;
+    margin: 0%;
+}
+
+/* Main CSS for Desktop */
+
+main, footer {
+    background-color: var(--background);
+    width: 85%;
+    padding: 1rem;
+    margin: 1rem auto;
+    border: 0.5rem solid;
+    border-color: var(--outer-border-color);
+    border-radius: 1rem;
+}
+
+table, th, tr, nav > a {
+    border: 0.1em solid;
+    border-color: var(--border-color);
+}
+
+/* CSS for the header and nav */
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+nav > a {
+    padding: 1em 3em;
+    text-decoration: none;
+    color: white;
+    background-color: var(--button);
+}
+    
+nav {
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1003px) {
+
+    nav > a, nav > h1 {
+        padding: 0em 1em;
+        margin: 0em;
+    }    
+
+    small {
+        display: block;
+    }
+
+    img {
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width: 763px) {
+
+    nav > a, nav > h1 {
+        padding: 0em 0em;
+    }
+
+}
+
+@media screen and (max-width: 593px) {
+
+    nav {
+        background-color: var(--nav-color);
+        display: block;
+    }
+}
+
+/* CSS regarding grid */
+
+section > section {
+    display: grid;
+    margin: 2%;
+    border: 0.2em solid;
+    border-color: var(--border-color);
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "h0"
+                         "img1"
+                         "p2" 
+                         "his3"
+                         "pro4"
+                         "con5"
+                         "desc"
+                         "vid";
+}
+
+@media screen and (min-width: 900px) {
+
+    section > section {
+        display: grid;
+        margin: 2%;
+        border: 0.2em solid;
+        border-color: var(--border-color);
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "h0 h0 h0"
+                             "img1 p2 p2"
+                             "img1 his3 his3"
+                             "pro4 pro4 con5"
+                             "desc desc vid";
+    }
+
+    iframe {
+        grid-area: vid;
+        justify-self: center;
+        border: 0.1em solid;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    
+    iframe {
+        border: 0.1em solid;
+        width: 100%;
+    }
+}
+
+/* Putting items into grid areas */
+
+iframe {
+    grid-area: vid;
+    justify-self: center;
+}
+
+h3 {
+    grid-area: h0; 
+    text-align: center;  
+} 
+
+figure {
+    grid-area: img1;
+}
+
+figure + p {
+    grid-area: p2;
+}
+
+h3 ~ ul, p + p {
+    grid-area: his3;
+}
+
+.Pro {
+    background-color: var(--pro-color);
+    grid-area: pro4;
+}
+
+.Con {
+    background-color: var(--con-color);
+    grid-area: con5;
+}
+
+figure, figure + p, h3 ~ ul, p + p, .Pro, .Con {
+    border: 0.1em solid;
+    border-color: var(--border-color);
+    align-self: stretch;
+    padding: 1.5em;
+    margin: 0%;
+}
+
+img {
+    min-width: 50%;
+    max-width: 100%;
+}
+
+li {
+    text-align: start;
+}
+
+#side {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#side > h3, #side > p, #Index p {
+    padding: 0em 2em;
+    border: 0em solid;
+}
+
+#side > h3 {
+    text-decoration: underline;
+}
+
+small {
+    margin: 1em;
+}
+
+iframe + h5 {
+    grid-area: desc;
+    font-size: 2em;
+    align-self: center;
+    text-align: center;
+}
+
+i {
+    font-weight: bold;
+    font-style: normal;
+}
+
+#Entries i {
+    font-weight: normal;
+}
+
+#Index {
+    font-size: 1.2em;
+}
+
+header, nav, h4, h3, a > nav, h2, h1, h1 + p, h1 ~ ul {
+    text-align: center;
+}
+
+nav > a, h3, h4 {
+    font-size: 1.2rem;
+}

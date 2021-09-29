@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Leaderboard</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Total Games Played</th>
+            <th>Total Questions Answered</th>
+            <th>High Score</th>
+        </tr>
+        {% for row in user_data %}
+        {% if row[1] == 0 %}
+        {% else %}
+            <tr>
+            {% for data in row %}
+                <td> <a href="{{ url_for('profile', user=row[0]) }}">{{ data }} </a></td>
+            {% endfor %}
+            </tr>
+        {% endif %}
+        {% endfor%}
+    </table>
+
+{% endblock %}

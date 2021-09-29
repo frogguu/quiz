@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>Suggest a Question!</h1>
+    <p>Here, you can submit questions you would like to be added to the quiz.</p>
+    <p>You must submit the question you want, its answer and three false answers.</p>
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.suggest.label() }}
+        {{ form.suggest() }}
+        {% for error in form.suggest.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.true.label() }}
+        {{ form.true() }}
+        {% for error in form.true.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.falseA.label() }}
+        {{ form.falseA() }}
+        {% for error in form.falseA.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.falseB.label() }}
+        {{ form.falseB() }}
+        {% for error in form.falseB.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.falseC.label() }}
+        {{ form.falseC() }}
+        {% for error in form.falseC.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.submit() }}
+    </form>
+    <p>{{ outcome }}</p>
+{% endblock %}

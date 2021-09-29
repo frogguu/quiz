@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<h1>Review Questions</h1>
+<p>Clicking on a table row will switch a question from pending to current, and vice versa. There always must be one active question.</p>
+<p>To delete questions, enter the quest ID of the question you wish to delete in the box at the bottom of the page.</p>
+<h2>Current Questions</h2>
+    <table>
+    <tr>
+        <th>Quest ID</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>False Answer 1</th>
+        <th>False Answer 2</th>
+        <th>False Answer 3</th>
+        <th>Valid</th>
+    </tr>
+    {% for row in question_list %}
+    {% if row[6] == 0 %}
+    {% else %}
+        <tr>
+        {% for data in row %}
+            <td><a href="{{ url_for('change_valid', quest_id=row[0]) }}" > {{ data }} </a></td>
+        {% endfor %}
+        </tr>
+    {% endif %}
+    {% endfor%}
+    </table>   
+
+<h2>Pending Questions</h2>
+<table>
+    <tr>
+        <th>Quest ID</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>False Answer 1</th>
+        <th>False Answer 2</th>
+        <th>False Answer 3</th>
+        <th>Valid</th>
+    </tr>
+    {% for row in question_list %}
+    {% if row[6] == 1 %}
+    {% else %}
+        <tr>
+        {% for data in row %}
+            <td><a href="{{ url_for('change_valid', quest_id=row[0]) }}" > {{ data }} </a></td>
+        {% endfor %}
+        </tr>
+    {% endif %}
+    {% endfor%}
+    </table> 
+    <h2>Delete a Question</h2>
+    <form action="" method="POST" class="form" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.quest_id.label() }}
+        {{ form.quest_id() }}
+        <div class="error">
+        {% for error in form.quest_id.errors %}
+            {{ error }}
+        {% endfor %}
+        </div>
+        <br />
+        {{ form.submit() }}
+    </form>   
+{% endblock %}
