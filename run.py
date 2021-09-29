@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3.8
+#!/usr/local/bin/python3.9
 from wsgiref.handlers import CGIHandler
 import cgitb
 print("Content-Type: text/html\n\r\n")
